@@ -7,22 +7,76 @@ To write a program to predict the type of species of the Iris flower using the S
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-1. 
-2. 
-3. 
-4. 
+1. Import Necessary Libraries and Load Data.
+2. Split Dataset into Training and Testing Sets.
+3. Train the Model Using Stochastic Gradient Descent (SGD).
+4. Make Predictions and Evaluate Accuracy.
+5. Generate Confusion Matrix
 
-## Program:
+## Program / Output:
 ```
 /*
 Program to implement the prediction of iris species using SGD Classifier.
-Developed by: 
-RegisterNumber:  
+Developed by: Sabeeha Shaik
+RegisterNumber:  212223230176
 */
 ```
 
-## Output:
-![prediction of iris species using SGD Classifier](sam.png)
+
+```
+import pandas as pd
+from sklearn.datasets import load_iris
+from sklearn.linear_model import SGDClassifier
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
+```
+```
+iris = load_iris()
+```
+```
+df = pd.DataFrame(data = iris.data, columns = iris.feature_names)
+df['target']= iris.target
+```
+```
+print(df.head())
+```
+![image](https://github.com/user-attachments/assets/0226336a-4f99-4943-9f81-ecc4c9cb609e)
+```
+X = df.drop('target',axis = 1)
+y = df['target']
+```
+```
+X_train, X_test, y_train, y_test = train_test_split(X,y, test_size = 0.2, random_state = 42)
+```
+```
+sgd_clf = SGDClassifier(max_iter = 1000, tol = 1e-3)
+```
+```
+sgd_clf.fit(X_train, y_train)
+```
+![image](https://github.com/user-attachments/assets/e7ac44ce-4c97-4495-9886-cf38e0e0fa5d)
+```
+y_pred = sgd_clf.predict(X_test)
+```
+```
+accuracy = accuracy_score(y_test,y_pred)
+print(f"Accuracy: {accuracy:.3f}")
+```
+
+![image](https://github.com/user-attachments/assets/a6d90769-9d5f-4351-b90b-060fe4fa5f90)
+```
+cm = confusion_matrix(y_test,y_pred)
+print("Confusion Matrix:")
+print(cm)
+```
+![image](https://github.com/user-attachments/assets/b130ab5e-289c-422f-8c01-58da93cd07e2)
+```
+classification_report1 = classification_report(y_test,y_pred)
+print(classification_report1)
+```
+![image](https://github.com/user-attachments/assets/5a353b3e-ec9b-4d9d-9723-17b90348ffa2)
+
+
 
 
 ## Result:
