@@ -29,7 +29,7 @@ To write a program to predict the type of species of the Iris flower using the S
 
 11.Generate and Display Classification Report
 
-## Program / Output:
+## Program:
 ```
 /*
 Program to implement the prediction of iris species using SGD Classifier.
@@ -37,8 +37,6 @@ Developed by: Sabeeha Shaik
 RegisterNumber:  212223230176
 */
 ```
-
-
 ```
 import pandas as pd
 from sklearn.datasets import load_iris
@@ -56,7 +54,6 @@ df['target']= iris.target
 ```
 print(df.head())
 ```
-![image](https://github.com/user-attachments/assets/0226336a-4f99-4943-9f81-ecc4c9cb609e)
 ```
 X = df.drop('target',axis = 1)
 y = df['target']
@@ -70,7 +67,6 @@ sgd_clf = SGDClassifier(max_iter = 1000, tol = 1e-3)
 ```
 sgd_clf.fit(X_train, y_train)
 ```
-![image](https://github.com/user-attachments/assets/e7ac44ce-4c97-4495-9886-cf38e0e0fa5d)
 ```
 y_pred = sgd_clf.predict(X_test)
 ```
@@ -78,25 +74,29 @@ y_pred = sgd_clf.predict(X_test)
 accuracy = accuracy_score(y_test,y_pred)
 print(f"Accuracy: {accuracy:.3f}")
 ```
-
-![image](https://github.com/user-attachments/assets/a6d90769-9d5f-4351-b90b-060fe4fa5f90)
 ```
 cm = confusion_matrix(y_test,y_pred)
 print("Confusion Matrix:")
 print(cm)
 ```
-![image](https://github.com/user-attachments/assets/b130ab5e-289c-422f-8c01-58da93cd07e2)
 ```
 classification_report1 = classification_report(y_test,y_pred)
 print(classification_report1)
 print("Sabeeha Shaik")
 print(212223230176)
 ```
-![image](https://github.com/user-attachments/assets/995f8fd8-97fe-4de7-97d5-874ad59f38ab)
+## Output:
+## df.head()
+![image](https://github.com/user-attachments/assets/e0d3a109-1ca8-4b37-b5b0-4729955c05ee)
 
+## Accuracy
+![image](https://github.com/user-attachments/assets/71bb7db4-4b5c-4053-b4ee-7d56ea58a403)
 
+## Confusion matrix
+![image](https://github.com/user-attachments/assets/df1ca5c5-8300-430c-abb8-ce653b4f1f0c)
 
-
+## Classification report
+![image](https://github.com/user-attachments/assets/ff52d7ae-4369-41ea-9c3c-56085bbc8f8f)
 
 ## Result:
 Thus, the program to implement the prediction of the Iris species using SGD Classifier is written and verified using Python programming.
